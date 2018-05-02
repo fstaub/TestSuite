@@ -167,7 +167,7 @@ def CheckMG(model,short,cwd,log):
   with open(DebugDir+"mg_err.txt") as f:
     contents = f.read()
     errors = contents.count("Error")
-  log.write("Errors while loading UFO file in MG:          "+str(errors)+"\n\n")        
+  log.write("Errors while loading UFO file in MG:          "+str(errors)+"\n")        
   #if errors>0:  
     #log.write("UFO model accepted by MG:             no\n")
   #else:
@@ -197,7 +197,7 @@ def CheckTeX(model,short,cwd,log):
    with open(DebugDir+"tex_err.txt") as f:
     contents = f.read()
     errors += contents.count("Error")   
-   log.write("Errors during pdflatex:                      "+str(errors)+"\n\n")            
+   log.write("Errors during pdflatex:                       "+str(errors)+"\n\n")            
    #if errors>0:   
     #log.write("pdflatex was sucessfull:              no\n") 
    #else:

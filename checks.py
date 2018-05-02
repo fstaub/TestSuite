@@ -46,7 +46,7 @@ def run_check_SM_RGEs(cwd,log,DebugDir):
     
 def run_check_THDM_Unitarity(cwd,log,DebugDir):
     print "Checking the unitarity constraints in the large s limit for the THDM"
-    log.write("CChecking the unitarity constraints in the large s limit for the THDM\n")
+    log.write("Checking the unitarity constraints in the large s limit for the THDM\n")
     log.write("------------------------------------------------------------------\n")    
     out= open(cwd+"/"+DebugDir+"THDM_uni_out.txt","wb")
     err= open(cwd+"/"+DebugDir+"THDM_uni_err.txt","wb")    
@@ -121,9 +121,9 @@ def run_check_MSSM_2L(cwd,log,DebugDir):
     subprocess.call("./bin/SPhenoMSSM",shell=True,stdout=out,stderr=err)    
     spc2 = pyslha.read("SPheno.spc.MSSM")    
 
-    log.write('Difference in h_1:               %10.4e\n' % (spc1.blocks['MASS'][25]-spc2.blocks['MASS'][25]))
-    log.write('Difference in h_2:               %10.4e\n' % (spc1.blocks['MASS'][35]-spc2.blocks['MASS'][35]))      
-    
+    log.write('Difference in h_1:                           %10.4e\n' % (spc1.blocks['MASS'][25]-spc2.blocks['MASS'][25]))
+    log.write('Difference in h_2:                           %10.4e\n' % (spc1.blocks['MASS'][35]-spc2.blocks['MASS'][35]))      
+    log.write('\n')  
     os.chdir(cwd)
     out.close()
     err.close()  
