@@ -19,14 +19,48 @@ def run_check_GM_RGEs(cwd,log,DebugDir):
     with open("GM_RGEs_debug.txt") as f:
       contents = f.read()
       errors = contents.count("error")
-    log.write("Error ins GM RGEs:                            "+str(errors)+"\n\n")  
-    #if errors>0:   
-      #log.write("GM RGEs correct:               no\n\n") 
-    #else:
-      #log.write("GM RGEs correct:               yes\n\n")   
+    log.write("Errors in GM RGEs:                            "+str(errors)+"\n\n")  
     os.chdir(cwd) 
     out.close()
-    err.close()      
+    err.close() 
+    log.flush()
+    
+def run_check_SM_RGEs(cwd,log,DebugDir):
+    print "Checking the two-loop RGEs for the SM"
+    log.write("Checking the two-loop RGEs for the SM\n")
+    log.write("------------------------------------------------------------------\n")    
+    out= open(cwd+"/"+DebugDir+"SM_RGEs_out.txt","wb")
+    err= open(cwd+"/"+DebugDir+"SM_RGEs_err.txt","wb")    
+    shutil.copyfile("Files/RGE_checks/SM_RGEs.m",os.path.join(config.sarah_dir,"SM_RGEs.m"))
+    os.chdir(config.sarah_dir)
+    subprocess.call("math -run < SM_RGEs.m",shell=True,stdout=out,stderr=err)
+    os.remove("SM_RGEs.m")
+    with open("SM_RGEs_debug.txt") as f:
+      contents = f.read()
+      errors = contents.count("error")
+    log.write("Errors in SM RGEs:                            "+str(errors)+"\n\n")  
+    os.chdir(cwd) 
+    out.close()
+    err.close()    
+    log.flush()
+    
+def run_check_THDM_Unitarity(cwd,log,DebugDir):
+    print "Checking the unitarity constraints in the large s limit for the THDM"
+    log.write("CChecking the unitarity constraints in the large s limit for the THDM\n")
+    log.write("------------------------------------------------------------------\n")    
+    out= open(cwd+"/"+DebugDir+"THDM_uni_out.txt","wb")
+    err= open(cwd+"/"+DebugDir+"THDM_uni_err.txt","wb")    
+    shutil.copyfile("Files/Unitarity/THDM_comparison.m",os.path.join(config.sarah_dir,"THDM_comparison.m"))
+    os.chdir(config.sarah_dir)
+    subprocess.call("math -run < THDM_comparison.m",shell=True,stdout=out,stderr=err)
+    os.remove("THDM_comparison.m")
+    with open("THDM_Unitarity_debug.txt") as f:
+      errors = f.read().splitlines()
+    log.write("Errors in THDM unitarity constraints:         "+str(errors[0])+"\n\n")  
+    os.chdir(cwd) 
+    out.close()
+    err.close()       
+    log.flush()
 
 
 def run_check_THDMCPV_RGEs(cwd,log,DebugDir):
@@ -43,14 +77,11 @@ def run_check_THDMCPV_RGEs(cwd,log,DebugDir):
     with open("THDM_RGEs_debug.txt") as f:
       contents = f.read()
       errors = contents.count("error")
-    log.write("Error ins complex THDM RGEs:                 "+str(errors)+"\n\n")        
-    #if errors>0:   
-      #log.write("THDM RGEs correct:               no\n") 
-    #else:
-      #log.write("THDM RGEs correct:               yes\n")      
+    log.write("Errors in complex THDM RGEs:                  "+str(errors)+"\n\n")        
     os.chdir(cwd)
     out.close()
-    err.close()      
+    err.close()
+    log.flush()
     
 def run_check_MSSM_2L(cwd,log,DebugDir):
     print "Checking two-loop Higgs masses in the MSSM"
@@ -96,4 +127,5 @@ def run_check_MSSM_2L(cwd,log,DebugDir):
     os.chdir(cwd)
     out.close()
     err.close()  
+    log.flush()    
     

@@ -46,7 +46,7 @@ def CheckSARAH(model,short,cwd,log):
   with open(DebugDir+"math_out.txt") as f:
     contents = f.read()
     errors = contents.count("::")
-  log.write("Errors in Mathematica Run:                    "+str(errors)+"\n\n")    
+  log.write("Errors in Mathematica Run:                    "+str(errors)+"\n")    
   #if errors>0:  
     #log.write("Mathematica faultless:                no\n")
   #else:
@@ -76,7 +76,7 @@ def CheckSPheno(model,short,cwd,log):
    with open(DebugDir+"spheno_compile_err.txt") as f:
     contents = f.read()
     errors = contents.count("error")
-   log.write("Errors in SPheno compilation:                "+str(errors)+"\n\n")      
+   log.write("Errors in SPheno compilation:                 "+str(errors)+"\n")      
    #if errors>0:   
     #log.write("SPheno compilation faultless:         no\n") 
    #else:
@@ -89,7 +89,8 @@ def RunSPheno(model,short,cwd,log):
    sphenoout= open(DebugDir+"spheno_run_out.txt","wb")
    sphenoerr= open(DebugDir+"spheno_run_err.txt","wb")
    os.chdir(config.spheno_dir)
-   os.remove("SPheno.spc."+name) 
+   if os.path.exists("SPheno.spc."+name):
+     os.remove("SPheno.spc."+name) 
    subprocess.call("./bin/SPheno"+name+" "+short+"/Input_Files/LesHouches.in."+name,shell=True,stdout=sphenoout,stderr=sphenoerr)
    sphenoout.close()
    sphenoerr.close()   
@@ -128,7 +129,7 @@ def CheckCalcHep(model,short,cwd,log):
   with open(DebugDir+"calchep_out.txt") as f:
     contents = f.read()
     errors = contents.count("ERROR")
-  log.write("Errors in CalcHep model:                      "+str(errors)+"\n\n")          
+  log.write("Errors in CalcHep model:                      "+str(errors)+"\n")          
   #if errors>0:   
     #log.write("CalcHep model accepted:               no\n") 
   #else:
@@ -185,6 +186,7 @@ def CreateTeX(model,short,cwd,log):
   subprocess.call("sed -e \"s#pdflatex#pdflatex -interaction=nonstopmode#\" MakePDF.sh > test.sh",shell=True,stdout=tex_out,stderr=tex_err)
   subprocess.call("chmod 775 test.sh",shell=True,stdout=tex_out,stderr=tex_err)
   subprocess.call("./test.sh",shell=True,stdout=tex_out,stderr=tex_err)
+  os.chdir(cwd)
   tex_out.close()
   tex_err.close()
   
@@ -241,6 +243,7 @@ def RunModel(model,length,nr,cwd,log):
 # Tar file
   #tar_files(model,short)
   log.write("\n")
+  log.flush()  
   
 def run_check_all_models(cwd,log):
    with open('models.txt') as f:
