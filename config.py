@@ -12,6 +12,7 @@ check_latex_all = True
 
 # Specific checks vs. literature
 check_MSSM_2L = True
+check_LoopDecays_IR = True
 check_SM_RGEs = True
 check_GM_RGEs = True
 check_THDMCPV_RGEs = True

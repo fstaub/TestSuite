@@ -85,7 +85,7 @@ def CheckSPheno(model,short,cwd,log):
 def RunSPheno(model,short,cwd,log):
    files= os.listdir(config.spheno_dir+short+"/Input_Files/")
    global name 
-   name= files[0].replace("_low","").replace("LesHouches.in.","")
+   name= files[0].replace("_1","").replace("_2","").replace("_low","").replace("LesHouches.in.","")
    sphenoout= open(DebugDir+"spheno_run_out.txt","wb")
    sphenoerr= open(DebugDir+"spheno_run_err.txt","wb")
    os.chdir(config.spheno_dir)

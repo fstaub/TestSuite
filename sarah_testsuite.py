@@ -46,7 +46,10 @@ print "##################################################################"
 print "Individual Checks"
 print "##################################################################\n\n"
 
-   
+
+if (config.check_LoopDecays_IR==True):
+   checks.run_check_LoopDecays_IR(cwd,log,"Debug/")
+
 if (config.check_SM_RGEs==True):
    checks.run_check_SM_RGEs(cwd,log,"Debug/")
    
@@ -61,6 +64,9 @@ if (config.check_MSSM_2L==True):
    
 if (config.check_THDM_Unitarity==True):
    checks.run_check_THDM_Unitarity(cwd,log,"Debug/")  
+   
+   
+   
    
 
 log.write("\n\n\n")
