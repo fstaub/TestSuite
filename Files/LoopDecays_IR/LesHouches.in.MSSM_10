@@ -102,8 +102,9 @@ Block DECAYOPTIONS   # Options to turn on/off specific decays
 1009 1     # Loop Decay of Chi 
 1010 1     # Loop Decay of Cha 
 1011 1     # Loop Decay of Fu 
-1114 1.     # U-factors (0: off, 1:p2_i=m2_i, 2:p2=0, p3:p2_i=m2_1) 
-1115 1.     # Use loop-corrected masses for external states 
+1114 0.     # U-factors (0: off, 1:p2_i=m2_i, 2:p2=0, p3:p2_i=m2_1) 
+1115 0.     # Use loop-corrected masses for external states 
 1116 0.     # OS values for W,Z and fermions (0: off, 1:g1,g2,v 2:g1,g2,v,Y_i) 
 1117 0.     # Use defined counter-terms 
 1118 1.     # Use everywhere loop-corrected masses for loop-induced decays 
+1201 1.0E-12 #

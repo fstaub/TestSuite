@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[    276568,       5616]
-NotebookOptionsPosition[    264105,       5233]
-NotebookOutlinePosition[    264455,       5249]
-CellTagsIndexPosition[    264412,       5246]
+NotebookDataLength[    278540,       5662]
+NotebookOptionsPosition[    266071,       5279]
+NotebookOutlinePosition[    266426,       5295]
+CellTagsIndexPosition[    266383,       5292]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4482,26 +4482,29 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Simplify", "[", 
-  RowBox[{
-   RowBox[{"(", 
-    RowBox[{"Yu1Loop", "-", 
-     RowBox[{"BetaYijk", "[", 
-      RowBox[{"[", 
-       RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ")"}], " ", "/.", 
-   RowBox[{
-    RowBox[{"trace", "[", 
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"Yu1Loop", "-", 
+       RowBox[{"BetaYijk", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ")"}], " ", "/.", 
      RowBox[{
-      RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
-    RowBox[{"trace", "[", 
-     RowBox[{"b", ",", 
-      RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}]], "Input",
+      RowBox[{"trace", "[", 
+       RowBox[{
+        RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
+      RowBox[{"trace", "[", 
+       RowBox[{"b", ",", 
+        RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}]}], ";"}]], "Input",\
+
  InitializationCell->True,
  CellChangeTimes->{{3.568970709729467*^9, 3.568970719685358*^9}, {
   3.568970755881159*^9, 3.568970789238267*^9}, {3.568976133803295*^9, 
   3.5689761472968893`*^9}, {3.568976796812736*^9, 3.56897686945795*^9}, {
   3.56903362248378*^9, 3.569033636485148*^9}, {3.569038459900597*^9, 
-  3.569038479879094*^9}}],
+  3.569038479879094*^9}, {3.734346363302782*^9, 3.734346365577478*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -4527,7 +4530,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Yu_1L correct \\n\>\""}], "]"}], ";"}], 
@@ -4540,45 +4543,50 @@ Cell[BoxData[
  CellChangeTimes->{{3.726551034628231*^9, 3.726551172726194*^9}, {
   3.7265512229377203`*^9, 3.72655122304391*^9}, {3.734172836481886*^9, 
   3.734172844659893*^9}, {3.734175468852584*^9, 3.734175664279387*^9}, {
-  3.7342429930128307`*^9, 3.734243011197052*^9}}],
+  3.7342429930128307`*^9, 3.734243011197052*^9}, {3.734346367520318*^9, 
+  3.734346367859026*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"Expand", "[", 
-   RowBox[{"Simplify", "[", 
-    RowBox[{
-     RowBox[{
-      RowBox[{"(", 
-       RowBox[{"Yu2Loop", "-", 
-        RowBox[{"BetaYijk", "[", 
-         RowBox[{"[", 
-          RowBox[{"1", ",", "3"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
-      RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", 
-     RowBox[{
-      RowBox[{"trace", "[", 
+  RowBox[{"res", "=", 
+   RowBox[{
+    RowBox[{"Expand", "[", 
+     RowBox[{"Simplify", "[", 
+      RowBox[{
        RowBox[{
-        RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
-      RowBox[{"trace", "[", 
-       RowBox[{"b", ",", 
-        RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "]"}], " ", "/.", 
-  " ", 
-  RowBox[{
-   RowBox[{"trace", "[", 
-    RowBox[{"a__", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
-     RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
-   RowBox[{"trace", "[", 
-    RowBox[{"b", ",", 
-     RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}]], "Input",
+        RowBox[{"(", 
+         RowBox[{"Yu2Loop", "-", 
+          RowBox[{"BetaYijk", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "3"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
+        RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", 
+       RowBox[{
+        RowBox[{"trace", "[", 
+         RowBox[{
+          RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], 
+        "\[Rule]", 
+        RowBox[{"trace", "[", 
+         RowBox[{"b", ",", 
+          RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "]"}], " ", "/.",
+     " ", 
+    RowBox[{
+     RowBox[{"trace", "[", 
+      RowBox[{"a__", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
+       RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
+     RowBox[{"trace", "[", 
+      RowBox[{"b", ",", 
+       RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}]}], ";"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.5689735232075453`*^9, 3.568973528598476*^9}, {
   3.5689768766713037`*^9, 3.56897688794879*^9}, {3.568977050470027*^9, 
   3.568977064800744*^9}, {3.568977142950107*^9, 3.568977164466815*^9}, {
   3.568977196050433*^9, 3.5689772391449337`*^9}, {3.569038501756443*^9, 
-  3.569038508709456*^9}, {3.569042462511901*^9, 3.569042463513686*^9}}],
+  3.569038508709456*^9}, {3.569042462511901*^9, 3.569042463513686*^9}, {
+  3.734346369061842*^9, 3.7343463710809393`*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -4607,7 +4615,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Yu_2L correct \\n\>\""}], "]"}], ";"}], 
@@ -4617,33 +4625,38 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Yu_2L error \\n\>\""}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.73424301447838*^9, 3.734243017341538*^9}}],
+ CellChangeTimes->{{3.73424301447838*^9, 3.734243017341538*^9}, {
+  3.734346372942429*^9, 3.7343463734010363`*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Simplify", "[", 
-  RowBox[{
-   RowBox[{
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"Simplify", "[", 
     RowBox[{
-     RowBox[{"(", 
-      RowBox[{"Yd1Loop", "-", 
-       RowBox[{"BetaYijk", "[", 
-        RowBox[{"[", 
-         RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
-     RowBox[{"i1", "\[Rule]", " ", "gen1"}]}], " ", "/.", " ", 
-    RowBox[{"i2", "\[Rule]", "gen2"}]}], "/.", " ", 
-   RowBox[{
-    RowBox[{"trace", "[", 
      RowBox[{
-      RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
-    RowBox[{"trace", "[", 
-     RowBox[{"b", ",", 
-      RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}]], "Input",
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"Yd1Loop", "-", 
+         RowBox[{"BetaYijk", "[", 
+          RowBox[{"[", 
+           RowBox[{"2", ",", "2"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
+       RowBox[{"i1", "\[Rule]", " ", "gen1"}]}], " ", "/.", " ", 
+      RowBox[{"i2", "\[Rule]", "gen2"}]}], "/.", " ", 
+     RowBox[{
+      RowBox[{"trace", "[", 
+       RowBox[{
+        RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
+      RowBox[{"trace", "[", 
+       RowBox[{"b", ",", 
+        RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}]}], ";"}]], "Input",\
+
  InitializationCell->True,
  CellChangeTimes->{{3.5689709096192913`*^9, 3.5689709439639053`*^9}, {
    3.56897689152293*^9, 3.568976898546088*^9}, {3.56897729361598*^9, 
-   3.568977300848013*^9}, 3.568977335578415*^9, 3.5690408013385487`*^9}],
+   3.568977300848013*^9}, 3.568977335578415*^9, 3.5690408013385487`*^9, {
+   3.734346374687693*^9, 3.7343463764750423`*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -4670,7 +4683,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Yd_1L correct \\n\>\""}], "]"}], ";"}], 
@@ -4680,45 +4693,50 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Yd_1L error \\n\>\""}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.7342430259993143`*^9, 3.734243028685142*^9}}],
+ CellChangeTimes->{{3.7342430259993143`*^9, 3.734243028685142*^9}, {
+  3.734346378186657*^9, 3.734346378508779*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Simplify", "[", 
-  RowBox[{
-   RowBox[{"Expand", "[", 
-    RowBox[{"Simplify", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{"Yd2Loop", "-", 
-         RowBox[{"BetaYijk", "[", 
-          RowBox[{"[", 
-           RowBox[{"2", ",", "3"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
-       RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", " ", 
-      RowBox[{
-       RowBox[{"trace", "[", 
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
+     RowBox[{"Expand", "[", 
+      RowBox[{"Simplify", "[", 
+       RowBox[{
         RowBox[{
-         RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], 
-       "\[Rule]", 
-       RowBox[{"trace", "[", 
-        RowBox[{"b", ",", 
-         RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "]"}], "/.", 
-   RowBox[{
-    RowBox[{"trace", "[", 
-     RowBox[{"a__", ",", 
-      RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
-      RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
-    RowBox[{"trace", "[", 
-     RowBox[{"b", ",", 
-      RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
-      RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}], "]"}]], "Input",
+         RowBox[{"(", 
+          RowBox[{"Yd2Loop", "-", 
+           RowBox[{"BetaYijk", "[", 
+            RowBox[{"[", 
+             RowBox[{"2", ",", "3"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
+         RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", " ", 
+        RowBox[{
+         RowBox[{"trace", "[", 
+          RowBox[{
+           RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], 
+         "\[Rule]", 
+         RowBox[{"trace", "[", 
+          RowBox[{"b", ",", 
+           RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "]"}], "/.", 
+     RowBox[{
+      RowBox[{"trace", "[", 
+       RowBox[{"a__", ",", 
+        RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
+        RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
+      RowBox[{"trace", "[", 
+       RowBox[{"b", ",", 
+        RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
+        RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}], "]"}]}], ";"}]], "Input",\
+
  InitializationCell->True,
  CellChangeTimes->{{3.5689710012287407`*^9, 3.568971006607353*^9}, {
    3.568974030749824*^9, 3.568974032375952*^9}, {3.5689769035016537`*^9, 
    3.56897691092902*^9}, {3.5689773411361856`*^9, 3.568977349674027*^9}, {
-   3.56904248213657*^9, 3.5690424834231033`*^9}, 3.5691212719625187`*^9}],
+   3.56904248213657*^9, 3.5690424834231033`*^9}, 3.5691212719625187`*^9, {
+   3.7343463802193537`*^9, 3.73434638209385*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -4751,7 +4769,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Yd_2L correct \\n\>\""}], "]"}], ";"}], 
@@ -4761,35 +4779,40 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Yd_2L error \\n\>\""}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.734243032795418*^9, 3.734243033641011*^9}}],
+ CellChangeTimes->{{3.734243032795418*^9, 3.734243033641011*^9}, {
+  3.734346383997347*^9, 3.7343463843117743`*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Simplify", "[", 
-  RowBox[{"Simplify", "[", 
-   RowBox[{
-    RowBox[{
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{"Simplify", "[", 
      RowBox[{
-      RowBox[{"(", 
-       RowBox[{"Ye1Loop", "-", 
-        RowBox[{"BetaYijk", "[", 
-         RowBox[{"[", 
-          RowBox[{"3", ",", "2"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
-      RowBox[{"i1", "\[Rule]", " ", "gen1"}]}], " ", "/.", " ", 
-     RowBox[{"i2", "\[Rule]", "gen2"}]}], "/.", " ", 
-    RowBox[{
-     RowBox[{"trace", "[", 
       RowBox[{
-       RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
-     
-     RowBox[{"trace", "[", 
-      RowBox[{"b", ",", 
-       RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "]"}]], "Input",
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"Ye1Loop", "-", 
+          RowBox[{"BetaYijk", "[", 
+           RowBox[{"[", 
+            RowBox[{"3", ",", "2"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
+        RowBox[{"i1", "\[Rule]", " ", "gen1"}]}], " ", "/.", " ", 
+       RowBox[{"i2", "\[Rule]", "gen2"}]}], "/.", " ", 
+      RowBox[{
+       RowBox[{"trace", "[", 
+        RowBox[{
+         RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], 
+       "\[Rule]", 
+       RowBox[{"trace", "[", 
+        RowBox[{"b", ",", 
+         RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "]"}]}], 
+  ";"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.568970952607964*^9, 3.568970955695601*^9}, {
    3.568976921517599*^9, 3.5689769303178368`*^9}, 3.5689773577074213`*^9, {
-   3.569040806000161*^9, 3.5690408083157473`*^9}}],
+   3.569040806000161*^9, 3.5690408083157473`*^9}, {3.734346385618566*^9, 
+   3.7343463872144213`*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -4815,7 +4838,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Ye_1L correct \\n\>\""}], "]"}], ";"}], 
@@ -4825,27 +4848,38 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Ye_1L error \\n\>\""}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.734243037878788*^9, 3.7342430398802443`*^9}}],
+ CellChangeTimes->{{3.734243037878788*^9, 3.7342430398802443`*^9}, {
+  3.73434638897421*^9, 3.734346389320648*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"Expand", "[", 
+  RowBox[{"res", "=", 
    RowBox[{
-    RowBox[{"Simplify", "[", 
+    RowBox[{"Expand", "[", 
      RowBox[{
-      RowBox[{
+      RowBox[{"Simplify", "[", 
        RowBox[{
         RowBox[{
-         RowBox[{"(", 
-          RowBox[{"Ye2Loop", "-", 
-           RowBox[{"BetaYijk", "[", 
-            RowBox[{"[", 
-             RowBox[{"3", ",", "3"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
-         RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", " ", 
-        RowBox[{"i1", "\[Rule]", " ", "gen1"}]}], " ", "/.", " ", 
-       RowBox[{"i2", "\[Rule]", "gen2"}]}], "/.", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"Ye2Loop", "-", 
+             RowBox[{"BetaYijk", "[", 
+              RowBox[{"[", 
+               RowBox[{"3", ",", "3"}], "]"}], "]"}]}], ")"}], " ", "/.", " ", 
+           RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", " ", 
+          RowBox[{"i1", "\[Rule]", " ", "gen1"}]}], " ", "/.", " ", 
+         RowBox[{"i2", "\[Rule]", "gen2"}]}], "/.", " ", 
+        RowBox[{
+         RowBox[{"trace", "[", 
+          RowBox[{
+           RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], 
+         "\[Rule]", 
+         RowBox[{"trace", "[", 
+          RowBox[{"b", ",", 
+           RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "/.", " ", 
       RowBox[{
        RowBox[{"trace", "[", 
         RowBox[{
@@ -4853,28 +4887,21 @@ Cell[BoxData[
        "\[Rule]", 
        RowBox[{"trace", "[", 
         RowBox[{"b", ",", 
-         RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "/.", " ", 
+         RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "/.", 
     RowBox[{
      RowBox[{"trace", "[", 
-      RowBox[{
-       RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
-     
+      RowBox[{"a__", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
+       RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
      RowBox[{"trace", "[", 
       RowBox[{"b", ",", 
-       RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "/.", 
-  RowBox[{
-   RowBox[{"trace", "[", 
-    RowBox[{"a__", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
-     RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
-   RowBox[{"trace", "[", 
-    RowBox[{"b", ",", 
-     RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}]], "Input",
+       RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}]}], ";"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.568971017166004*^9, 3.568971024805458*^9}, {
   3.568976937255961*^9, 3.568976946355246*^9}, {3.568977361997923*^9, 
-  3.5689773718510437`*^9}, {3.569048118281603*^9, 3.5690481230397587`*^9}}],
+  3.5689773718510437`*^9}, {3.569048118281603*^9, 3.5690481230397587`*^9}, {
+  3.734346390971264*^9, 3.734346393483034*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -4899,7 +4926,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Ye_2L correct \\n\>\""}], "]"}], ";"}], 
@@ -4909,31 +4936,36 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Ye_2L error \\n\>\""}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.734243044932466*^9, 3.73424304556264*^9}}],
+ CellChangeTimes->{{3.734243044932466*^9, 3.73424304556264*^9}, {
+  3.734346395384801*^9, 3.734346395699304*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Simplify", "[", 
-  RowBox[{
-   RowBox[{
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"Simplify", "[", 
     RowBox[{
-     RowBox[{"BetaBij", "[", 
-      RowBox[{"[", 
-       RowBox[{"1", ",", "2"}], "]"}], "]"}], "-", "Mu1Loop"}], " ", "/.", 
-    RowBox[{"Mu2", "\[Rule]", "mu2"}]}], " ", "/.", " ", 
-   RowBox[{
-    RowBox[{"trace", "[", 
      RowBox[{
-      RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
-    RowBox[{"trace", "[", 
-     RowBox[{"b", ",", 
-      RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}]], "Input",
+      RowBox[{
+       RowBox[{"BetaBij", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2"}], "]"}], "]"}], "-", "Mu1Loop"}], " ", "/.", 
+      RowBox[{"Mu2", "\[Rule]", "mu2"}]}], " ", "/.", " ", 
+     RowBox[{
+      RowBox[{"trace", "[", 
+       RowBox[{
+        RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
+      RowBox[{"trace", "[", 
+       RowBox[{"b", ",", 
+        RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}]}], ";"}]], "Input",\
+
  InitializationCell->True,
  CellChangeTimes->{{3.568957145129032*^9, 3.568957149762308*^9}, {
   3.568957538308928*^9, 3.568957544305315*^9}, {3.568957630931711*^9, 
   3.568957647644576*^9}, {3.5689576966633797`*^9, 3.568957696781735*^9}, {
-  3.734242730384542*^9, 3.734242762814505*^9}}],
+  3.734242730384542*^9, 3.734242762814505*^9}, {3.734346397681122*^9, 
+  3.734346399117016*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -4965,7 +4997,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Mu_1L correct \\n\>\""}], "]"}], ";"}], 
@@ -4975,46 +5007,50 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Mu_1L error \\n\>\""}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.734243050408564*^9, 3.734243053552194*^9}}],
+ CellChangeTimes->{{3.734243050408564*^9, 3.734243053552194*^9}, {
+  3.734346401298719*^9, 3.734346401636672*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"Simplify", "[", 
+  RowBox[{"res", "=", 
    RowBox[{
-    RowBox[{
+    RowBox[{"Simplify", "[", 
      RowBox[{
-      RowBox[{"(", 
+      RowBox[{
        RowBox[{
-        RowBox[{"BetaBij", "[", 
-         RowBox[{"[", 
-          RowBox[{"1", ",", "3"}], "]"}], "]"}], "-", "Mu2Loop"}], ")"}], " ",
-       "/.", 
-      RowBox[{"mu2", "\[Rule]", "Mu2"}]}], "/.", " ", 
-     RowBox[{"nG", "\[Rule]", "3"}]}], "/.", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"BetaBij", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "3"}], "]"}], "]"}], "-", "Mu2Loop"}], ")"}], 
+        " ", "/.", 
+        RowBox[{"mu2", "\[Rule]", "Mu2"}]}], "/.", " ", 
+       RowBox[{"nG", "\[Rule]", "3"}]}], "/.", " ", 
+      RowBox[{
+       RowBox[{"trace", "[", 
+        RowBox[{
+         RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], 
+       "\[Rule]", 
+       RowBox[{"trace", "[", 
+        RowBox[{"b", ",", 
+         RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], " ", "/.", " ", 
     RowBox[{
      RowBox[{"trace", "[", 
-      RowBox[{
-       RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
-     
+      RowBox[{"a__", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
+       RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
      RowBox[{"trace", "[", 
       RowBox[{"b", ",", 
-       RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], " ", "/.", " ", 
-  RowBox[{
-   RowBox[{"trace", "[", 
-    RowBox[{"a__", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
-     RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
-   RowBox[{"trace", "[", 
-    RowBox[{"b", ",", 
-     RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}]], "Input",
+       RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}]}], ";"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.568964028572053*^9, 3.568964030042948*^9}, {
    3.5689663889232607`*^9, 3.568966401524625*^9}, 3.568977380783395*^9, 
    3.569042505907699*^9, {3.734242734659753*^9, 3.734242735450159*^9}, {
-   3.734242767025105*^9, 3.7342427690269012`*^9}}],
+   3.734242767025105*^9, 3.7342427690269012`*^9}, {3.7343464030637093`*^9, 
+   3.734346404788137*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -5046,7 +5082,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Mu_2L correct \\n\>\""}], "]"}], ";"}], 
@@ -5056,29 +5092,34 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Mu_2L error \\n\>\""}], "]"}], ";"}]}], 
    "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.734243058335403*^9, 3.73424305901353*^9}}],
+ CellChangeTimes->{{3.734243058335403*^9, 3.73424305901353*^9}, {
+  3.734346406754702*^9, 3.734346408449419*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Simplify", "[", 
-  RowBox[{
-   RowBox[{
-    RowBox[{"(", 
-     RowBox[{"Lambda1Loop", "-", 
-      RowBox[{"BetaLijkl", "[", 
-       RowBox[{"[", 
-        RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ")"}], "/.", " ", 
-    RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", " ", 
-   RowBox[{
-    RowBox[{"trace", "[", 
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"Simplify", "[", 
+    RowBox[{
      RowBox[{
-      RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
-    RowBox[{"trace", "[", 
-     RowBox[{"b", ",", 
-      RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}]], "Input",
+      RowBox[{"(", 
+       RowBox[{"Lambda1Loop", "-", 
+        RowBox[{"BetaLijkl", "[", 
+         RowBox[{"[", 
+          RowBox[{"1", ",", "2"}], "]"}], "]"}]}], ")"}], "/.", " ", 
+      RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", " ", 
+     RowBox[{
+      RowBox[{"trace", "[", 
+       RowBox[{
+        RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], "\[Rule]", 
+      RowBox[{"trace", "[", 
+       RowBox[{"b", ",", 
+        RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}]}], ";"}]], "Input",\
+
  InitializationCell->True,
- CellChangeTimes->{{3.568960163332045*^9, 3.568960191867403*^9}}],
+ CellChangeTimes->{{3.568960163332045*^9, 3.568960191867403*^9}, {
+  3.7343464097244587`*^9, 3.734346411352265*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -5108,7 +5149,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Lambda_1L correct \\n\>\""}], "]"}], ";"}],
@@ -5118,59 +5159,63 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Lambda_1L error \\n\>\""}], "]"}], ";"}]}],
     "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.734243063595647*^9, 3.734243072152214*^9}}],
+ CellChangeTimes->{{3.734243063595647*^9, 3.734243072152214*^9}, {
+  3.734346413430964*^9, 3.734346413777814*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{
-   RowBox[{"Expand", "[", 
-    RowBox[{"Simplify", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"(", 
-        RowBox[{"Lambda2Loop", "-", 
-         RowBox[{"BetaLijkl", "[", 
-          RowBox[{"[", 
-           RowBox[{"1", ",", "3"}], "]"}], "]"}]}], ")"}], "/.", " ", 
-       RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", " ", 
-      RowBox[{
-       RowBox[{"trace", "[", 
-        RowBox[{
-         RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], 
-       "\[Rule]", 
-       RowBox[{"trace", "[", 
-        RowBox[{"b", ",", 
-         RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "]"}], "  ", "/.",
-    " ", 
+  RowBox[{"res", "=", 
    RowBox[{
-    RowBox[{"trace", "[", 
-     RowBox[{"a__", ",", 
-      RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
-      RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
-    RowBox[{"trace", "[", 
-     RowBox[{"b", ",", 
-      RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
-      RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}], "/.", " ", 
-  RowBox[{
-   RowBox[{"trace", "[", 
-    RowBox[{"Yd", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}], ",", "Yd", ",", 
-     RowBox[{"Adj", "[", "Yu", "]"}], ",", "Yu", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}], "\[Rule]", 
-   RowBox[{"trace", "[", 
-    RowBox[{"Yd", ",", 
-     RowBox[{"Adj", "[", "Yu", "]"}], ",", "Yu", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}], ",", "Yd", ",", 
-     RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}]], "Input",
+    RowBox[{
+     RowBox[{"Expand", "[", 
+      RowBox[{"Simplify", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"Lambda2Loop", "-", 
+           RowBox[{"BetaLijkl", "[", 
+            RowBox[{"[", 
+             RowBox[{"1", ",", "3"}], "]"}], "]"}]}], ")"}], "/.", " ", 
+         RowBox[{"nG", "\[Rule]", "3"}]}], " ", "/.", " ", 
+        RowBox[{
+         RowBox[{"trace", "[", 
+          RowBox[{
+           RowBox[{"Adj", "[", "a_", "]"}], ",", " ", "b___"}], "]"}], 
+         "\[Rule]", 
+         RowBox[{"trace", "[", 
+          RowBox[{"b", ",", 
+           RowBox[{"Adj", "[", "a", "]"}]}], "]"}]}]}], "]"}], "]"}], "  ", "/.",
+      " ", 
+     RowBox[{
+      RowBox[{"trace", "[", 
+       RowBox[{"a__", ",", 
+        RowBox[{"Adj", "[", "Yd", "]"}], ",", "b___", ",", 
+        RowBox[{"Adj", "[", "Yu", "]"}]}], "]"}], "\[Rule]", 
+      RowBox[{"trace", "[", 
+       RowBox[{"b", ",", 
+        RowBox[{"Adj", "[", "Yu", "]"}], ",", "a", ",", 
+        RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}], "/.", " ", 
+    RowBox[{
+     RowBox[{"trace", "[", 
+      RowBox[{"Yd", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}], ",", "Yd", ",", 
+       RowBox[{"Adj", "[", "Yu", "]"}], ",", "Yu", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}], "\[Rule]", 
+     RowBox[{"trace", "[", 
+      RowBox[{"Yd", ",", 
+       RowBox[{"Adj", "[", "Yu", "]"}], ",", "Yu", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}], ",", "Yd", ",", 
+       RowBox[{"Adj", "[", "Yd", "]"}]}], "]"}]}]}]}], ";"}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.5689609902163153`*^9, 3.568960992426591*^9}, {
    3.568962585246213*^9, 3.5689625881312723`*^9}, {3.568965500734494*^9, 
    3.568965514097937*^9}, 3.56896642716815*^9, {3.568966496830942*^9, 
    3.568966503414118*^9}, {3.568966628553667*^9, 3.568966643310154*^9}, 
    3.568967535353476*^9, 3.5689773846326723`*^9, 3.569042511441452*^9, {
-   3.5691259699746017`*^9, 3.569126021289633*^9}, 3.56912605221777*^9}],
+   3.5691259699746017`*^9, 3.569126021289633*^9}, 3.56912605221777*^9, {
+   3.734346415212359*^9, 3.7343464173416643`*^9}}],
 
 Cell[BoxData["0"], "Output",
  InitializationCell->True,
@@ -5213,7 +5258,7 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"If", "[", 
    RowBox[{
-    RowBox[{"%", "===", "0"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"res", "===", "0"}], ",", "\[IndentingNewLine]", 
     RowBox[{
      RowBox[{"WriteString", "[", 
       RowBox[{"outRGEs", ",", "\"\<Lambda_2L correct \\n\>\""}], "]"}], ";"}],
@@ -5223,7 +5268,8 @@ Cell[BoxData[
       RowBox[{"outRGEs", ",", "\"\<Lambda_2L error \\n\>\""}], "]"}], ";"}]}],
     "\[IndentingNewLine]", "]"}], ";"}]], "Input",
  InitializationCell->True,
- CellChangeTimes->{{3.7342430765292883`*^9, 3.734243079710992*^9}}],
+ CellChangeTimes->{{3.7342430765292883`*^9, 3.734243079710992*^9}, {
+  3.7343464195974207`*^9, 3.734346419903863*^9}}],
 
 Cell[BoxData[
  RowBox[{
@@ -5231,8 +5277,8 @@ Cell[BoxData[
  InitializationCell->True,
  CellChangeTimes->{{3.734243100397258*^9, 3.734243105566798*^9}}]
 },
-WindowSize->{1920, 1027},
-WindowMargins->{{1, Automatic}, {-23, 49}},
+WindowSize->{1918, 1027},
+WindowMargins->{{1, Automatic}, {1, Automatic}},
 ShowSelection->True,
 FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
 StyleDefinitions->"Default.nb"
@@ -5433,7 +5479,7 @@ Cell[139607, 2478, 1753, 31, 24, "Print",
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[141409, 2515, 338, 6, 32, "Input",
+Cell[141409, 2515, 338, 6, 48, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
 Cell[141772, 2525, 1259, 21, 23, "Print",
@@ -5528,95 +5574,95 @@ Cell[201052, 3599, 1559, 29, 22, "Print",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]],
-Cell[202638, 3632, 170, 4, 35, "Input",
+Cell[202638, 3632, 170, 4, 51, "Input",
  InitializationCell->True],
-Cell[202811, 3638, 3707, 109, 107, "Input",
+Cell[202811, 3638, 3707, 109, 123, "Input",
  InitializationCell->True],
-Cell[206521, 3749, 25075, 721, 529, "Input",
+Cell[206521, 3749, 25075, 721, 545, "Input",
  InitializationCell->True],
 Cell[231599, 4472, 279, 7, 49, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[231903, 4483, 800, 20, 35, "Input",
+Cell[231903, 4483, 918, 23, 51, "Input",
  InitializationCell->True],
-Cell[232706, 4505, 1162, 17, 30, "Output",
+Cell[232824, 4508, 1162, 17, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[233883, 4525, 735, 17, 119, "Input",
+Cell[234001, 4528, 786, 18, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[234643, 4546, 1350, 34, 35, "Input",
+Cell[234812, 4550, 1508, 38, 51, "Input",
  InitializationCell->True],
-Cell[235996, 4582, 1359, 20, 30, "Output",
+Cell[236323, 4590, 1359, 20, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[237370, 4605, 538, 14, 103, "Input",
+Cell[237697, 4613, 591, 15, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[237933, 4623, 863, 22, 35, "Input",
+Cell[238313, 4632, 995, 26, 51, "Input",
  InitializationCell->True],
-Cell[238799, 4647, 1177, 18, 30, "Output",
+Cell[239311, 4660, 1177, 18, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[239991, 4668, 541, 14, 103, "Input",
+Cell[240503, 4681, 592, 15, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[240557, 4686, 1344, 34, 35, "Input",
+Cell[241120, 4700, 1497, 38, 51, "Input",
  InitializationCell->True],
-Cell[241904, 4722, 1609, 24, 30, "Output",
+Cell[242620, 4740, 1609, 24, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[243528, 4749, 539, 14, 103, "Input",
+Cell[244244, 4767, 592, 15, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[244092, 4767, 901, 24, 35, "Input",
+Cell[244861, 4786, 1038, 28, 51, "Input",
  InitializationCell->True],
-Cell[244996, 4793, 1127, 17, 30, "Output",
+Cell[245902, 4816, 1127, 17, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[246138, 4813, 541, 14, 103, "Input",
+Cell[247044, 4836, 591, 15, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[246704, 4831, 1659, 45, 75, "Input",
+Cell[247660, 4855, 1832, 48, 75, "Input",
  InitializationCell->True],
-Cell[248366, 4878, 1054, 16, 30, "Output",
+Cell[249495, 4905, 1054, 16, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[249435, 4897, 538, 14, 119, "Input",
+Cell[250564, 4924, 589, 15, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[249998, 4915, 798, 20, 51, "Input",
+Cell[251178, 4943, 921, 24, 51, "Input",
  InitializationCell->True],
-Cell[250799, 4937, 1533, 23, 30, "Output",
+Cell[252102, 4969, 1533, 23, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[252347, 4963, 539, 14, 119, "Input",
+Cell[253650, 4995, 590, 15, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[252911, 4981, 1284, 35, 51, "Input",
+Cell[254265, 5014, 1438, 38, 51, "Input",
  InitializationCell->True],
-Cell[254198, 5018, 1557, 23, 30, "Output",
+Cell[255706, 5054, 1557, 23, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[255770, 5044, 538, 14, 119, "Input",
+Cell[257278, 5080, 589, 15, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[256333, 5062, 635, 18, 51, "Input",
+Cell[257892, 5099, 762, 22, 51, "Input",
  InitializationCell->True],
-Cell[256971, 5082, 1480, 21, 30, "Output",
+Cell[258657, 5123, 1480, 21, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[258466, 5106, 547, 14, 119, "Input",
+Cell[260152, 5147, 598, 15, 119, "Input",
  InitializationCell->True],
 Cell[CellGroupData[{
-Cell[259038, 5124, 1928, 48, 75, "Input",
+Cell[260775, 5166, 2104, 51, 75, "Input",
  InitializationCell->True],
-Cell[260969, 5174, 2390, 34, 30, "Output",
+Cell[262882, 5219, 2390, 34, 30, "Output",
  InitializationCell->True]
 }, Open  ]],
-Cell[263374, 5211, 549, 14, 119, "Input",
+Cell[265287, 5256, 602, 15, 119, "Input",
  InitializationCell->True],
-Cell[263926, 5227, 175, 4, 48, "Input",
+Cell[265892, 5273, 175, 4, 48, "Input",
  InitializationCell->True]
 }
 ]

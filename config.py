@@ -1,5 +1,5 @@
 spheno_dir="/home/fnstaub/Documents/Uni/Work/Temp/SPheno-4.0.3/"
-sarah_dir="/home/fnstaub/Documents/Uni/Work/Temp/SARAH-4.13.0b13/"
+sarah_dir="/home/fnstaub/Documents/Uni/Work/Temp/SARAH-4.13.0b14/"
 calchep_dir="/home/fnstaub/Documents/Uni/Work/Temp/calchep_3.7/"
 mg_dir="/home/fnstaub/Documents/Uni/Work/Temp/MG5_aMC_v2_6_2/"
 

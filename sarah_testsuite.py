@@ -41,7 +41,6 @@ log.write("Version: 0.001, run started: "+str(datetime.datetime.fromtimestamp(ti
 
 log.flush()
 
-
 print "##################################################################"
 print "Individual Checks"
 print "##################################################################\n\n"

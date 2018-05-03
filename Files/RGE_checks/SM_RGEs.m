@@ -60,110 +60,110 @@ outRGEs=OpenWrite["SM_RGEs_debug.txt"];
 
 
 (* ::Input::Initialization:: *)
-Simplify[(Yu1Loop-BetaYijk[[1,2]]) /.trace[Adj[a_], b___]->trace[b,Adj[a]]]
+res=Simplify[(Yu1Loop-BetaYijk[[1,2]]) /.trace[Adj[a_], b___]->trace[b,Adj[a]]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Yu_1L correct \n"];,
 WriteString[outRGEs,"Yu_1L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Expand[Simplify[(Yu2Loop-BetaYijk[[1,3]]) /. nG->3 /.trace[Adj[a_], b___]->trace[b,Adj[a]]]] /. trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]]
+res=Expand[Simplify[(Yu2Loop-BetaYijk[[1,3]]) /. nG->3 /.trace[Adj[a_], b___]->trace[b,Adj[a]]]] /. trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Yu_2L correct \n"];,
 WriteString[outRGEs,"Yu_2L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Simplify[(Yd1Loop-BetaYijk[[2,2]]) /. i1-> gen1 /. i2->gen2/. trace[Adj[a_], b___]->trace[b,Adj[a]]]
+res=Simplify[(Yd1Loop-BetaYijk[[2,2]]) /. i1-> gen1 /. i2->gen2/. trace[Adj[a_], b___]->trace[b,Adj[a]]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Yd_1L correct \n"];,
 WriteString[outRGEs,"Yd_1L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Simplify[Expand[Simplify[(Yd2Loop-BetaYijk[[2,3]]) /. nG->3 /. trace[Adj[a_], b___]->trace[b,Adj[a]]]]/.trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]]]
+res=Simplify[Expand[Simplify[(Yd2Loop-BetaYijk[[2,3]]) /. nG->3 /. trace[Adj[a_], b___]->trace[b,Adj[a]]]]/.trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Yd_2L correct \n"];,
 WriteString[outRGEs,"Yd_2L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Simplify[Simplify[(Ye1Loop-BetaYijk[[3,2]]) /. i1-> gen1 /. i2->gen2/. trace[Adj[a_], b___]->trace[b,Adj[a]]]]
+res=Simplify[Simplify[(Ye1Loop-BetaYijk[[3,2]]) /. i1-> gen1 /. i2->gen2/. trace[Adj[a_], b___]->trace[b,Adj[a]]]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Ye_1L correct \n"];,
 WriteString[outRGEs,"Ye_1L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Expand[Simplify[(Ye2Loop-BetaYijk[[3,3]]) /. nG->3 /. i1-> gen1 /. i2->gen2/. trace[Adj[a_], b___]->trace[b,Adj[a]]]/. trace[Adj[a_], b___]->trace[b,Adj[a]]]/.trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]]
+res=Expand[Simplify[(Ye2Loop-BetaYijk[[3,3]]) /. nG->3 /. i1-> gen1 /. i2->gen2/. trace[Adj[a_], b___]->trace[b,Adj[a]]]/. trace[Adj[a_], b___]->trace[b,Adj[a]]]/.trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Ye_2L correct \n"];,
 WriteString[outRGEs,"Ye_2L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Simplify[BetaBij[[1,2]]-Mu1Loop /.Mu2->mu2 /. trace[Adj[a_], b___]->trace[b,Adj[a]]]
+res=Simplify[BetaBij[[1,2]]-Mu1Loop /.Mu2->mu2 /. trace[Adj[a_], b___]->trace[b,Adj[a]]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Mu_1L correct \n"];,
 WriteString[outRGEs,"Mu_1L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Simplify[(BetaBij[[1,3]]-Mu2Loop) /.mu2->Mu2/. nG->3/. trace[Adj[a_], b___]->trace[b,Adj[a]]] /. trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]]
+res=Simplify[(BetaBij[[1,3]]-Mu2Loop) /.mu2->Mu2/. nG->3/. trace[Adj[a_], b___]->trace[b,Adj[a]]] /. trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Mu_2L correct \n"];,
 WriteString[outRGEs,"Mu_2L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Simplify[(Lambda1Loop-BetaLijkl[[1,2]])/. nG->3 /. trace[Adj[a_], b___]->trace[b,Adj[a]]]
+res=Simplify[(Lambda1Loop-BetaLijkl[[1,2]])/. nG->3 /. trace[Adj[a_], b___]->trace[b,Adj[a]]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Lambda_1L correct \n"];,
 WriteString[outRGEs,"Lambda_1L error \n"];
 ];
 
 
 (* ::Input::Initialization:: *)
-Expand[Simplify[(Lambda2Loop-BetaLijkl[[1,3]])/. nG->3 /. trace[Adj[a_], b___]->trace[b,Adj[a]]]]  /. trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]]/. trace[Yd,Adj[Yd],Yd,Adj[Yu],Yu,Adj[Yd]]->trace[Yd,Adj[Yu],Yu,Adj[Yd],Yd,Adj[Yd]]
+res=Expand[Simplify[(Lambda2Loop-BetaLijkl[[1,3]])/. nG->3 /. trace[Adj[a_], b___]->trace[b,Adj[a]]]]  /. trace[a__,Adj[Yd],b___,Adj[Yu]]->trace[b,Adj[Yu],a,Adj[Yd]]/. trace[Yd,Adj[Yd],Yd,Adj[Yu],Yu,Adj[Yd]]->trace[Yd,Adj[Yu],Yu,Adj[Yd],Yd,Adj[Yd]];
 
 
 (* ::Input::Initialization:: *)
-If[%===0,
+If[res===0,
 WriteString[outRGEs,"Lambda_2L correct \n"];,
 WriteString[outRGEs,"Lambda_2L error \n"];
 ];

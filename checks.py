@@ -94,7 +94,7 @@ def generate_spheno(cwd,log,DebugDir,model,short,flags):
     f.close()
     out= open(cwd+"/"+DebugDir+"SPheno"+short+"_out.txt","wb")
     err= open(cwd+"/"+DebugDir+"SPheno"+short+"_err.txt","wb")
-#    subprocess.call("math -run < input_"+short+".m",shell=True,stdout=out,stderr=err)
+    subprocess.call("math -run < input_"+short+".m",shell=True,stdout=out,stderr=err)
     os.remove("input_"+short+".m")
     
     # Compile SPheno
@@ -126,7 +126,7 @@ def run_check_MSSM_2L(cwd,log,DebugDir):
     log.write("Checking two-loop Higgs masses in the MSSM\n")
     log.write("------------------------------------------------------------------\n")
     
-#    generate_spheno(cwd,log,DebugDir,"MSSM","MSSM","IncludeLoopDecays->False,IncludeFlavorKit->False")
+    generate_spheno(cwd,log,DebugDir,"MSSM","MSSM","IncludeLoopDecays->False,IncludeFlavorKit->False")
 
     os.chdir(config.spheno_dir)
     shutil.copyfile(cwd+"/Files/MSSM_2L/LesHouches.in.MSSM_83","LesHouches.in.MSSM")   
@@ -140,29 +140,46 @@ def run_check_MSSM_2L(cwd,log,DebugDir):
     log.write('\n\n')  
     os.chdir(cwd)
     log.flush()    
-    
-    
-def run_check_LoopDecays_IR(cwd,log,DebugDir):   
+
+def IR_check(cwd,log,DebugDir,model,short,file1,file2):
+    #generate_spheno(cwd,log,DebugDir,model,short,"IncludeFlavorKit->False")
     os.chdir(config.spheno_dir)
-    print "Checking IR divergences in loop decays"
-    log.write("Checking IR divergences in loop decays\n")
-    log.write("------------------------------------------------------------------\n")    
-#    generate_spheno(cwd,log,DebugDir,"MSSM","MSSM","IncludeFlavorKit->False")
-    shutil.copyfile(cwd+"/Files/LoopDecays_IR/LesHouches.in.MSSM_10","LesHouches.in.MSSM")       
-    spc1=get_spheno_spc(cwd,log,DebugDir,"MSSM")
+    shutil.copyfile(cwd+file1,"LesHouches.in."+short)       
+    spc1=get_spheno_spc(cwd,log,DebugDir,short)
+    shutil.copyfile("SPheno.spc."+short,cwd+"/"+DebugDir+"SPheno.spc."+short+"_IRA")       
    
-    shutil.copyfile(cwd+"/Files/LoopDecays_IR/LesHouches.in.MSSM_15","LesHouches.in.MSSM")       
-    spc2=get_spheno_spc(cwd,log,DebugDir,"MSSM")
+    shutil.copyfile(cwd+file2,"LesHouches.in."+short)       
+    spc2=get_spheno_spc(cwd,log,DebugDir,short)
+    shutil.copyfile("SPheno.spc."+short,cwd+"/"+DebugDir+"SPheno.spc."+short+"_IRB")           
     
    
+    log.write(model+"\n\n") 
     for f in spc1.decays.keys():
         maxdiff=0.        
         for g in range(0,len(spc1.decays[f].decays)):
-            br1= spc1.decays[f].decays[g].br
-            br2= spc2.decays[f].decays[g].br
-            diff = abs(br1-br2)/br1
-            if diff>maxdiff:
-                maxdiff=diff
-        log.write('Maximal difference in 1-loop BR of %i:                           %10.4e\n' % (f,maxdiff))        
+          if (12 not in map(abs,spc1.decays[f].decays[g].ids)) and (14 not in map(abs,spc1.decays[f].decays[g].ids)) and (16 not in map(abs,spc1.decays[f].decays[g].ids)): # neutrino spoil the numerics
+            br1= spc1.decays[f].decays[g].br*spc1.decays[f].totalwidth
+            if g < len(spc2.decays[f].decays):
+                br2= spc2.decays[f].decays[g].br*spc2.decays[f].totalwidth
+                diff = abs(br1-br2)/br1
+                if diff>maxdiff:
+                    maxdiff=diff
+        #print len(str(f))-6
+        #print 'Maximal difference in 1-loop BR of %i:        %s                   %10.4e  !\n' % (f,' '*(len(str(f))-6),maxdiff)
+        if (maxdiff > 0.01):            
+            log.write('Maximal difference in 1-loop BR of %i:        %s                   %10.4e  !\n' % (f,' '*(8-len(str(f))),maxdiff)) 
+        else:
+            log.write('Maximal difference in 1-loop BR of %i:        %s                   %10.4e\n' % (f,' '*(8-len(str(f))),maxdiff))  
+    log.flush()        
+    
+    
+def run_check_LoopDecays_IR(cwd,log,DebugDir):   
+    print "Checking IR divergences in loop decays"
+    log.write("Checking IR divergences in loop decays\n")
+    log.write("------------------------------------------------------------------\n")    
+    IR_check(cwd,log,DebugDir,"THDM-II","THDMII","/Files/LoopDecays_IR/LesHouches.in.THDMII_10","/Files/LoopDecays_IR/LesHouches.in.THDMII_15")
+    log.write('\n')
+    IR_check(cwd,log,DebugDir,"MSSM","MSSM","/Files/LoopDecays_IR/LesHouches.in.MSSM_10","/Files/LoopDecays_IR/LesHouches.in.MSSM_15")
+    log.write('\n\n')
     os.chdir(cwd)     
     log.flush()    
